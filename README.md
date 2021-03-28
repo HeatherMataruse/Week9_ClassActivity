@@ -1,24 +1,13 @@
-# Navigation Over Screens
+In week 9, students are tasked to design a simple app interface to implement Firebase Authentication to sign in with email and password and/or Google or any other social platform.
 
-A new Flutter project created with [FlutLab](https://flutlab.io)
+This example will have three pages;
 
-### Getting Started: FlutLab - Flutter Online IDE
+The main.dart page and,
+The logIn.dart page
+The home.dart
+Create a directory and call it setup. Inside the setup folder, creator the logIn.dart file, with the title Sign In. Use scaffold and the body to be a form widget with the column as the child. In the form section, create two TextFormField for the email and the password.
+The next widget is a sign-in button. Use a raised button
+Create another directory called pages. Inside the pages folder, create the home.dart file.
+2. In week 10 they are tasked to add any flutter package dependency to the app.
 
-- Watch Mini crash course "How to use Flutter Widgets" on [FlutLab Youtube Channel](https://www.youtube.com/channel/UC7ZOPQm4JFlvBc9WeynLX_g)
-- Discover a marketplace of ready-to-use Flutter projects [FlutLab Widget Bay](https://widgetbay.flutlab.io/)
-- Join the discussion and conversation on [FlutLab Facebook Group](https://www.facebook.com/groups/flutlab/)
-
-If you have some questions regarding FlutLab, you can ask on [FlutLab FAQ](https://faq.flutlab.io/)
-
-### Getting Started: Flutter
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. In week 11, they are to practice widget testing on the application.
