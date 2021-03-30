@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:navigation_over_screens/pages/home.dart';
-import 'setup/login.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'pages/home.dart';
+import 'setup/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Login(),
       routes: <String, WidgetBuilder>{
-        "Login": (BuildContext context) => HomePage(),
+        "home": (BuildContext context) => HomePage(),
       },
     );
   }

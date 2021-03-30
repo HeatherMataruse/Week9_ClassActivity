@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../pages/home.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -15,8 +16,8 @@ class _LoginState extends State<Login> {
   checkAuthentification() async {
     _auth.authStateChanges().listen((user) {
       if (user != null) {
-        print(user);
-        Navigator.pushReplacementNamed(context, "/");
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
       }
     });
   }
@@ -30,8 +31,9 @@ class _LoginState extends State<Login> {
   login() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
+
       try {
-        await _auth.signInWithEmailAndPassword(
+        UserCredential user = await _auth.signInWithEmailAndPassword(
             email: _email, password: _password);
       } catch (e) {
         print(e);
@@ -47,13 +49,18 @@ class _LoginState extends State<Login> {
         child: Column(
           children: <Widget>[
             Container(
+              height: 100,
+            ),
+            Container(
               child: Form(
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 20),
                     Container(
                       child: TextFormField(
+                          validator: (input) {
+                            if (input.isEmpty) return 'Enter Email';
+                          },
                           decoration: InputDecoration(
                             labelText: 'Email',
                           ),
@@ -61,6 +68,10 @@ class _LoginState extends State<Login> {
                     ),
                     Container(
                       child: TextFormField(
+                          validator: (input) {
+                            if (input.length < 4)
+                              return 'It should be at least 4 characters';
+                          },
                           decoration: InputDecoration(
                             labelText: 'Password',
                           ),
@@ -69,7 +80,6 @@ class _LoginState extends State<Login> {
                     ),
                     SizedBox(height: 20),
                     RaisedButton(
-                      padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
                       onPressed: login,
                       child: Text('LOGIN',
                           style: TextStyle(
@@ -78,13 +88,13 @@ class _LoginState extends State<Login> {
                               fontWeight: FontWeight.bold)),
                       color: Colors.blue,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(15.0),
                       ),
                     )
                   ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

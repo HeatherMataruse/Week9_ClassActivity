@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../setup/login.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,7 +15,8 @@ class _HomePageState extends State<HomePage> {
   checkAuthentification() async {
     _auth.authStateChanges().listen((user) {
       if (user == null) {
-        Navigator.of(context).pushReplacementNamed("login");
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Login()));
       }
     });
   }
@@ -32,6 +34,10 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  signOut() async {
+    _auth.signOut();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -43,11 +49,25 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      child: Text('Welcome',
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold)),
+      child: !isloggedin
+          ? CircularProgressIndicator()
+          : Column(
+              children: <Widget>[
+                SizedBox(height: 40.0),
+                RaisedButton(
+                  onPressed: signOut,
+                  child: Text('Logout',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold)),
+                  color: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                )
+              ],
+            ),
     ));
   }
 }
