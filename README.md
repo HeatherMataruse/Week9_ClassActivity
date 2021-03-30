@@ -12,3 +12,9 @@ Create another directory called pages. Inside the pages folder, create the home.
 2. In week 10 they are tasked to add any flutter package dependency to the app.
 
 3. In week 11, they are to practice widget testing on the application.
+
+
+Group Members
+1. Heather Mataruse
+2. Abakar Issa 
+3. Lavina Kathambi
