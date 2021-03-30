@@ -18,3 +18,7 @@ Group Members
 1. Heather Mataruse
 2. Abakar Issa 
 3. Lavina Kathambi
+
+Log in details of firebase  on the login page of the app
+username/email :user1@gmail.com
+passowrd:Userone1
